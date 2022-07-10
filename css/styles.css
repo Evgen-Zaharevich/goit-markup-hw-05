@@ -146,11 +146,30 @@ p {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav .link:hover,
 .header-nav .link:focus {
   color: var(--accent-color);
+}
+
+.item-current {
+  position: relative;
+}
+
+.link-current::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .header-contacts {
@@ -174,6 +193,15 @@ p {
   letter-spacing: 0.02em;
 }
 
+.contact-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
@@ -185,13 +213,9 @@ p {
 
   fill: currentColor;
 }
-.contact-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.contact-icon:hover .contact-icon:focus {
+.contact-icon:hover,
+.contact-icon:focus {
   fill: var(--accent-color);
 }
 
@@ -244,6 +268,9 @@ p {
   line-height: 1.87;
   text-align: center;
   letter-spacing: 0.06em;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -309,6 +336,39 @@ p {
 
 .activity .item:not(:last-child) {
   margin-right: 30px;
+}
+
+.activity-item {
+  position: relative;
+}
+
+.activity-item .title {
+  position: absolute;
+  margin: 0;
+  bottom: 27px;
+  font-size: 14px;
+  line-height: 1.14;
+  color: var(--white-color);
+  text-align: center;
+}
+
+.activity-title-1 {
+  left: 83px;
+}
+.activity-title-2 {
+  left: 86px;
+}
+.activity-title-3 {
+  left: 91px;
+}
+
+.activity-thumb::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
 }
 
 /* Наша команда */
@@ -383,6 +443,9 @@ p {
   border-radius: 50%;
   width: 44px;
   height: 44px;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-link:hover,
@@ -397,6 +460,9 @@ p {
 
 .team-icon {
   fill: var(--icon-color);
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* список клиентов */
@@ -418,6 +484,9 @@ p {
   height: 92px;
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -425,15 +494,18 @@ p {
   border: 1px solid var(--accent-color);
 }
 
-.client-link:hover .client-icon,
-.client-link:focus .client-icon {
-  fill: var(--accent-color);
-}
-
 .client-icon {
   display: inline-block;
 
   fill: var(--icon-color);
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.client-link:hover .client-icon,
+.client-link:focus .client-icon {
+  fill: var(--accent-color);
 }
 
 /* подвал (footer) */
@@ -468,6 +540,9 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-list a:hover,
@@ -509,8 +584,64 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.footer-social-list .team-link:hover {
+.footer-social-list .team-link:hover,
+.footer-social-list .team-link:focus {
   background-color: var(--accent-color);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* backdrop  */
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  padding: 15px;
+  border-radius: 4px;
+
+  background-color: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.modal-cnt {
+  position: relative;
+}
+
+.button-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  background-color: var(--white-color);
+}
+
+.modal-icon {
 }
 
 /* ПОРТФОЛИО */
@@ -551,6 +682,9 @@ p {
   line-height: 1.62;
   font-size: 16px;
   text-align: center;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.active-btn {
@@ -603,10 +737,59 @@ p {
   margin-top: var(--work-list-gap);
 }
 
+.work-card-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card-cnt::after {
+  position: absolute;
+  content: '';
+  bottom: -100%;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-list-card:hover .work-card-cnt::after,
+.work-list-card:focus .work-card-cnt::after {
+  transform: translateY(-100%);
+}
+
+.work-list-card .card-text {
+  position: absolute;
+  width: 322px;
+  height: 168px;
+  top: 290px;
+  left: 24px;
+  z-index: 1;
+
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--white-color);
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-list-card:hover .card-text,
+.work-list-card:focus .card-text {
+  transform: translateY(-227px);
+}
+
 .card-content {
   border: 1px solid #eeeeee;
   border-top: none;
   padding: 20px 24px;
+}
+
+.card {
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {

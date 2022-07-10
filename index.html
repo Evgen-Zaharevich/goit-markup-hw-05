@@ -25,7 +25,9 @@
         <a href="index.html" class="logo"><span class="logo-accent">Web</span>Studio</a>
         <nav>
           <ul class="header-nav list">
-            <li class="item"><a href="./index.html" class="link current">Студия</a></li>
+            <li class="item item-current">
+              <a href="./index.html" class="link current link-current">Студия</a>
+            </li>
             <li class="item"><a href="./portfolio.html" class="link">Портфолио</a></li>
             <li class="item"><a href="#" class="link">Контакты</a></li>
           </ul>
@@ -57,7 +59,7 @@
       <section class="hero">
         <div class="container">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-          <button type="button" class="hero-button">Заказать услугу</button>
+          <button data-modal-open type="button" class="hero-button">Заказать услугу</button>
         </div>
       </section>
 
@@ -116,29 +118,38 @@
 
           <h2 class="headline title">Чем мы занимаемся</h2>
           <ul class="activity list">
-            <li class="item">
-              <img
-                src="./images/box-1.jpg"
-                alt="Человек печатает на клавиатуре"
-                width="370"
-                height="294"
-              />
+            <li class="item activity-item">
+              <div class="activity-thumb">
+                <h3 class="title activity-title-1">ДEСКТОПНЫЕ ПРИЛОЖЕНИЯ</h3>
+                <img
+                  src="./images/box-1.jpg"
+                  alt="Человек печатает на клавиатуре"
+                  width="370"
+                  height="294"
+                />
+              </div>
             </li>
-            <li class="item">
-              <img
-                src="./images/box-2.jpg"
-                alt="Человек работает на смартфоне"
-                width="370"
-                height="294"
-              />
+            <li class="item activity-item">
+              <div class="activity-thumb">
+                <h3 class="title activity-title-2">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
+                <img
+                  src="./images/box-2.jpg"
+                  alt="Человек работает на смартфоне"
+                  width="370"
+                  height="294"
+                />
+              </div>
             </li>
-            <li class="item">
-              <img
-                src="./images/box-3.jpg"
-                alt="Человек работает на планшет"
-                width="370"
-                height="294"
-              />
+            <li class="item activity-item">
+              <div class="activity-thumb">
+                <h3 class="title activity-title-3">ДИЗАЙНЕРСКИЕ РЕШЕНИЯ</h3>
+                <img
+                  src="./images/box-3.jpg"
+                  alt="Человек работает на планшет"
+                  width="370"
+                  height="294"
+                />
+              </div>
             </li>
           </ul>
         </div>
@@ -415,5 +426,17 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal modal-cnt">
+        <button data-modal-close type="button" class="button-icon">
+          <svg class="modal-icon" width="11" height="11">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
